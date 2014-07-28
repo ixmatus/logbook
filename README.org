@@ -1,2 +1,4 @@
 * Welcome!
-
+  LogBook is a [[http://snapframework.com][Snapframework]] Snaplet providing a simple and easy to
+  use blogging application with a clear design focus and intentional
+  typography.
