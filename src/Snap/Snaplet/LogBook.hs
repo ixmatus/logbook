@@ -11,6 +11,7 @@ import qualified Data.Aeson                    as A
 import qualified Data.ByteString.Char8         as BS
 import qualified Data.ByteString.Lazy          as BL
 import qualified Data.Configurator             as C
+import qualified Filesystem.Path.CurrentOS     as FP
 import           Snap.Core
 import           Snap.Snaplet
 
@@ -22,7 +23,7 @@ initLogBook = makeSnaplet "logbook" description datadir $ do
     _  <- getSnapletUserConfig
     fp <- getSnapletFilePath
 
-    return $ LogBook fp
+    return . LogBook $ FP.decodeString fp
 
   where
     datadir     = Just $ liftM (++ "/resources") getDataDir
